@@ -19,7 +19,11 @@
 </form>
 
 <script>
-  if (location.protocol !== "https:") {
+  const projectId = document.querySelector('input[name="PROJECT_ID"]').value;
+  if (projectId === "660655de-d7ba-4ee1-a75d-c71d00b073e9") {
+    document.querySelector("#status").textContent =
+      "Replace TEST_PROJECT_ID with an approved disposable record before testing.";
+  } else if (location.protocol !== "https:") {
     document.querySelector("#status").textContent =
       "Publish this file on the authorized HTTPS test origin before running it.";
   } else {
